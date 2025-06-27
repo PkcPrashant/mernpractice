@@ -1,0 +1,11 @@
+body {
+  width: 100vw;
+  color: black;
+  background: white;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  margin: auto;
+}
