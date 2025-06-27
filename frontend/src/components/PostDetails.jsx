@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 const PostDetails = () => {
+    const BASE_URL = import.meta.env.VITE_API_URL;
     const params = useParams();
 
     const [post, setPost] = useState({});
@@ -11,7 +12,7 @@ const PostDetails = () => {
     })
 
     const getPost = (id) => {
-        fetch(`http://localhost:3000/blog/${id}`)
+        fetch(`${BASE_URL}/blog/${id}`)
             .then(resp => resp.json())
             .then(resp => {
                 console.log('Response ', resp);
@@ -28,8 +29,8 @@ const PostDetails = () => {
 
     useEffect(() => {
         setForm(() => ({
-            title: post.title,
-            description: post.description
+            title: post.title || '',
+            description: post.description || ''
         }))
     }, [post]);
 

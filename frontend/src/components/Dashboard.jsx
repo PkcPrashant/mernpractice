@@ -2,12 +2,12 @@ import { useState, useEffect } from "react";
 import PostList from "./PostList";
 
 const Dashboard = () => {
-
+    const BASE_URL = import.meta.env.VITE_API_URL;
     const [search, setSearch] = useState('');
     const [posts, setPosts] = useState([]);
 
     const getPosts = (query = '') => {
-        fetch(`http://localhost:3000/blog${query}`)
+        fetch(`${BASE_URL}/blog${query}`)
             .then(resp => resp.json())
             .then(resp => {
                 console.log('Response ', resp);
